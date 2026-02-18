@@ -26,12 +26,12 @@
     "guardian": "Peter. Mbua" 
   },
 
-    { "id": 102, 
-    "firstName": "Linda", 
+    { "id": 103, 
+    "firstName": "John", 
     "fullName": "John Nfor",    
     "age": 22, 
-    "gender": "male",   
-    "email": "linda.m@example.com", 
+    "gender": "Male",   
+    "email": "john.n@example.com", 
     "enrolled": "No",   
     "courses": "Graphic Design",             
     "scores": [65,70],      
@@ -39,12 +39,12 @@
     "guardian": "None" 
   },
 
-    { "id": 102, 
-    "firstName": "Linda", 
-    "fullName": "Sara Taku",    
+    { "id": 104, 
+    "firstName": "Sarah", 
+    "fullName": "Sarah Taku",    
     "age": 19, 
     "gender": "Female", 
-    "email": "linda.m@example.com", 
+    "email": "sarah.t@example.com", 
     "enrolled": "Yes",  
     "courses": "Mobile App Dev, UI/UX",       
     "scores": [92, 89, 95], 
@@ -52,12 +52,12 @@
     "guardian": "Grace Taku" 
   },
 
-    { "id": 102, 
-    "firstName": "Linda", 
+    { "id": 105, 
+    "firstName": "Micheal", 
     "fullName": "Micheal Fon",  
     "age": 23, 
     "gender": "male",   
-    "email": "linda.m@example.com", 
+    "email": "Micheal.f@example.com", 
     "enrolled": "Yes",  
     "courses": "Data Analysis",              
     "scores": [74, 80],     
@@ -67,5 +67,4 @@
   
   ]
 }
-
 
