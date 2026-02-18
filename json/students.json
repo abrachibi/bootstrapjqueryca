@@ -1,0 +1,7 @@
+{
+  "students": [
+    { "id": 101, "firstName": "Awah", "fullName": "Awah Vitalis", "age": 22, "gender": "Male", "email": "awah.v@ageacademy.cm", "enrolled": "2025-01-15", "courses": "Cosmetics", "scores": 88, "city": "Bamenda", "guardian": "Pa Awah" },
+    { "id": 102, "firstName": "Linda", "fullName": "Linda Mbua", "age": 19, "gender": "Female", "email": "linda.m@ageacademy.cm", "enrolled": "2025-02-10", "courses": "Graphic Design", "scores": 92, "city": "Buea", "guardian": "Mrs. Mbua" }
+  ]
+}
+

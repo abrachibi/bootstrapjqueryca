@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs System | Age Academy</title>
+    <!-- Frameworks -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="my_assets/fonts/fontawesome-free-7.1.0-web/css/all.min.css">
+</head>
+<body>
+    
+<!-- Main Wrapper with Page Padding -->
+<section class="main-faq-container py-5" style="padding-bottom: 100px !important;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-9">
+                
+        <!-- Main FAQ Container with Background -->
+        <div class="faq-container shadow-lg" style="background-color: #fbfcfd; border-radius: 15px; overflow: hidden;">
+            
+            <!-- Gradient Header with Image -->
+            <div class="faq-header text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 45px 20px;">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="my_assets/images/book_stack/red_green_red_blue_book_stack.jpg" alt="FAQ Icon" style="width: 60px; height: 60px; margin-right: 20px; border-radius: 50%;">
+                    <div class="text-start">
+                        <h1 class="fw-bold mb-0" style="color: #ffffff !important;">Interactive FAQ System</h1>
+                        <p class="lead mb-0" style="color: #ffffff !important;">Dynamic FAQ with jQuery Looping & Chaining</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Controls with Vertical Padding -->
+            <div class="controls" style="padding: 40px 20px; background-color: #ffffff; border-bottom: 1px solid #dee2e6;">
+                <div class="row g-3 justify-content-center">
+                    <div class="col-sm-6 col-md-3">
+                        <button class="btn btn-primary w-100 shadow-sm" id="numberAll">Number All</button>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <button class="btn btn-outline-secondary w-100 shadow-sm" id="expandAll">Expand All</button>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <button class="btn btn-outline-danger w-100 shadow-sm" id="collapseAll">Collapse All</button>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <button class="btn btn-dark w-100 shadow-sm" id="highlightEven">Highlight Even</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Section with Increased Input Size -->
+            <div class="px-4 pt-5 search-wrapper" style="padding-bottom: 40px;">
+                <input type="text" id="faqSearch" class="form-control form-control-lg shadow-none" 
+                        placeholder="Search FAQs..." 
+                        style="background-color: #f8faff !important; border: 2px solid #764ba2 !important; border-radius: 10px; padding: 20px 25px; font-size: 1.25rem;">
+            </div>
+
+            <div class="faq-list">
+                <!-- Cosmetics Training -->
+                <div class="faq-item bg-white mx-4 mb-3 rounded shadow-sm border">
+                    <div class="faq-question d-flex justify-content-between align-items-center p-3" style="cursor: pointer;">
+                        <span class="fw-semibold"><span class="faq-number text-dark me-3">?</span>What is Cosmetics Training?</span>
+                        <i class="fas fa-caret-down toggle-icon text-primary" style="transition: 0.3s;"></i>
+                    </div>
+                    <div class="faq-answer p-3 pt-0 text-muted border-top" style="display: none;">
+                        Cosmetics Training involves learning the science and art of formulating skincare, hair care, and beauty products safely and professionally.
+                    </div>
+                </div>
+
+                <!-- Soap Making -->
+                <div class="faq-item bg-white mx-4 mb-3 rounded shadow-sm border">
+                    <div class="faq-question d-flex justify-content-between align-items-center p-3" style="cursor: pointer;">
+                        <span class="fw-semibold"><span class="faq-number text-dark me-3">?</span>What is Soap Making?</span>
+                        <i class="fas fa-caret-down toggle-icon text-primary" style="transition: 0.3s;"></i>
+                    </div>
+                    <div class="faq-answer p-3 pt-0 text-muted border-top" style="display: none;">
+                        Soap Making is the vocational craft of creating organic and decorative soaps using cold-process, hot-process, or melt-and-pour methods.
+                    </div>
+                </div>
+
+                <!-- Business Empowerment -->
+                <div class="faq-item bg-white mx-4 mb-3 rounded shadow-sm border">
+                    <div class="faq-question d-flex justify-content-between align-items-center p-3" style="cursor: pointer;">
+                        <span class="fw-semibold"><span class="faq-number text-dark me-3">?</span>What is Business Empowerment?</span>
+                        <i class="fas fa-caret-down toggle-icon text-primary" style="transition: 0.3s;"></i>
+                    </div>
+                    <div class="faq-answer p-3 pt-0 text-muted border-top" style="display: none;">
+                        Business Empowerment is our mentorship program that provides tools, branding, and strategies to help students turn skills into profitable businesses.
+                    </div>
+                </div>
+
+                <!-- Music Production -->
+                <div class="faq-item bg-white mx-4 mb-3 rounded shadow-sm border">
+                    <div class="faq-question d-flex justify-content-between align-items-center p-3" style="cursor: pointer;">
+                        <span class="fw-semibold"><span class="faq-number text-dark me-3">?</span>What is Music Production?</span>
+                        <i class="fas fa-caret-down toggle-icon text-primary" style="transition: 0.3s;"></i>
+                    </div>
+                    <div class="faq-answer p-3 pt-0 text-muted border-top" style="display: none;">
+                        Music Production is the technical process of composing, recording, and mastering audio tracks using industry-standard Digital Audio Workstations.
+                    </div>
+                </div>
+                
+                 <!-- STATS BAR -->
+                    <div class="stats-bar px-4 py-3 border-top bg-light">
+                        <div class="row align-items-center text-center text-md-start">
+                            <div class="col-md-4 mb-2 mb-md-0">Total: <span id="totalCount" class="fw-bold">0</span></div>
+                            <div class="col-md-4 mb-2 mb-md-0">Expanded: <span id="expandedCount" class="fw-bold">0</span></div>
+                            <div class="col-md-4 text-md-end">
+                                <span id="systemStatus" class="badge rounded-pill px-3 py-2 bg-success">System Ready</span>
+                            </div>
+                        </div>
+                    </div>
+
+                                     
+                  <!-- Toast Container -->
+                    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1060;">
+                    <div id="numberToast" class="toast align-items-center bg-success-custom border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="4000">
+                        <div class="d-flex">
+                        <div class="toast-body">
+                            <i class="fas fa-check-circle me-2"></i> All numbered!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    </div>
+
+
+
+
+                    
+
+                  
+
+<!-- Offline Scripts -->
+<script src="js/jquery-jquery-f79d5f1/dist/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // 1. Disable Right-Click
+        $(document).on("contextmenu", function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // 2. Disable F12 (DevTools), Ctrl+Shift+I, Ctrl+U (View Source)
+        $(document).on("keydown", function(e) {
+            // F12
+            if (e.keyCode == 123) {
+                return false;
+            }
+            // Ctrl + Shift + I (Inspect)
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            // Ctrl + Shift + J (Console)
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            // Ctrl + U (View Source)
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+            // Ctrl + S (Save Page)
+            if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {
+                return false;
+            }
+        });
+
+        // 3. Disable Text Selection (Copying)
+        $('body').css({
+            '-webkit-user-select': 'none',
+            '-moz-user-select': 'none',
+            '-ms-user-select': 'none',
+            'user-select': 'none'
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootsrap_JQuery_Ca</title>
+    <!-- CSS STYLESHEETS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="my_assets/fonts/fontawesome-free-7.1.0-web/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+    
+<!-- NAVIGATION HEADER -->
+<header class="fixed-top">
+    <nav class="navbar navbar-expand-md bg-info navbar-dark text-uppercase fw-semibold p-4 px-m3-5 text-upp">
+        <div class="container-fluid px-4">
+            <span class="navbar-brand fs-4 fs-md-1 fw-bold-truncated">AB TECH</span>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav justify-content-center flex-grow-1 ms-lg-4 gap-4 ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Service</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="students_records.html">Portal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                </ul>
+
+               
+
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                </ul>
+
+                <div class="d-flex mt-2 mt-lg-0">
+                    <button type="button" class="btn btn-primary ms-lg-3">Download</button>
+                </div> 
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- HERO CAROUSEL -->
+<section id="hero" class="min-vh-100 position-relative overflow-hidden">
+    <div id="heroCarousel" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="3000">
+        
+        <!-- INDICATORS -->
+        <div class="carousel-indicators" style="z-index: 5;">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+        
+        <div class="carousel-inner h-100">
+            <!-- Slide 1 -->
+            <div class="carousel-item active h-100" data-bs-interval="3000">
+                <div class="position-absolute w-100 h-100" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)); z-index: 1;"></div>
+                <img src="my_assets/images/background_images/bridge_background.jpg" class="d-block w-100 vh-100 object-fit-cover" alt="Bridge">
+                <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100" style="z-index: 2;">
+                    
+                    <div class="hero-content-wrap text-bg-glass p-4 p-md-5 w-100">
+                        <!-- Awesome Title Case Font -->
+                        <h1 class="hero-title fw-bold display-3">Welcome to Age Academy</h1>
+                        <!-- Small Letter Message -->
+                        <p class="hero-subtitle mt-3 mb-5">the leading educational and skills empowerment academy in town</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center px-lg-5">
+                            <a href="#" class="btn btn-primary px-4 py-2 btn-hover-effect">Get Started</a>
+                            <a href="#contact" class="btn btn-light px-4 py-2 btn-hover-effect">Join Us Today</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item h-100" data-bs-interval="3000">
+                <div class="position-absolute w-100 h-100" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)); z-index: 1;"></div>
+                <img src="my_assets/images/my_cosmetics1/Buea_training1.jpg" class="d-block w-100 vh-100 object-fit-cover" alt="Training">
+                <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100" style="z-index: 2;">
+                    <div class="hero-content-wrap text-bg-glass p-4 p-md-5 w-100">
+                        <h1 class="hero-title fw-bold display-3">Master New Skills</h1>
+                        <p class="hero-subtitle mt-3 mb-5">professional cosmetics and soap production training with the best</p>
+                        <div class="d-flex justify-content-between align-items-center px-lg-5">
+                            <a href="#services" class="btn btn-primary px-4 py-2 btn-hover-effect">Explore Skills</a>
+                            <a href="#portfolio" class="btn btn-light px-4 py-2 btn-hover-effect">Our Gallery</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item h-100" data-bs-interval="3000">
+                <div class="position-absolute w-100 h-100" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)); z-index: 1;"></div>
+                <img src="my_assets/images/my_cosmetics1/Douala_training2.jpg" class="d-block w-100 vh-100 object-fit-cover" alt="Digital">
+                <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100" style="z-index: 2;">
+                    <div class="hero-content-wrap text-bg-glass p-4 p-md-5 w-100">
+                        <h1 class="hero-title fw-bold display-3">Digital Excellence</h1>
+                        <p class="hero-subtitle mt-3 mb-5">web development and ux design for the modern world</p>
+                        <div class="d-flex justify-content-between align-items-center px-lg-5">
+                            <a href="#blog" class="btn btn-primary px-4 py-2 btn-hover-effect">Latest News</a>
+                            <a href="#contact" class="btn btn-light px-4 py-2 btn-hover-effect">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" style="z-index: 3;">
+            <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" style="z-index: 3;">
+            <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+        </button>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="section-padding overflow-hidden bg-white">
+  <div class="container-fluid px-3 px-lg-5">
+    <div class="row align-items-center justify-content-center m-0 gy-5">
+      
+      <!-- Content Column -->
+      <div class="col-lg-6 ps-lg-4 text-start slide-top-down"> 
+        <div class="section-title">
+          <h1 class="display-4 fw-semibold">About Us</h1>
+          <div class="line"></div>
+          <p style="text-transform: lowercase;">We are an educational and skill empowerment academy</p>
+        </div>
+
+        <!-- Subtitle in small letters -->
+        <p class="lead hero-subtitle mb-4" style="color: #666;">Best in all types of skill training from cosmetics, soap making, detergent production, cookery education and many more.</p>
+
+        <!-- Icon Boxes -->
+        <div class="d-flex align-items-start mt-4 about-box">
+          <div class="iconbox me-3 flex-shrink-0">
+            <img src="my_assets/icons/png_icons/icons8-youtube-50.png" alt="Icon" />
+          </div>
+          <div>
+            <h5 class="mb-1 fw-bold">Video Tutorials & Masterclasses</h5>
+            <p class="hero-subtitle">watch comprehensive, step-by-step vocational training sessions designed for visual learners</p>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-start mt-4 about-box">
+          <div class="iconbox me-3 flex-shrink-0">
+            <img src="my_assets/icons/png_icons/icons8-facebook-50-7.png" alt="Icon" />
+          </div>
+          <div>
+            <h5 class="mb-1 fw-bold">Community Engagement Hub</h5>
+            <p class="hero-subtitle">join our active discussion groups to network with professionals and fellow skill-seekers</p>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-start mt-4 about-box">
+          <div class="iconbox me-3 flex-shrink-0">
+            <img src="my_assets/icons/png_icons/icons8-instagram-50-3.png" alt="Icon" />
+          </div>
+          <div>
+            <h5 class="mb-1 fw-bold">Visual Skill Showcases</h5>
+            <p class="hero-subtitle">explore a curated gallery of student success stories and creative project inspirations</p>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-start mt-4 about-box">
+          <div class="iconbox me-3 flex-shrink-0">
+            <img src="my_assets/icons/png_icons/icons8-tiktok-50.png" alt="Icon" />
+          </div>
+          <div>
+            <h5 class="mb-1 fw-bold">Rapid Learning Bites</h5>
+            <p class="hero-subtitle">master new techniques quickly with our short-form, high-impact vocational tips and tricks</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Image -->
+      <div class="col-lg-5 slide-top-down">
+        <img src="my_assets/images/my_pics_2022/my-pic2.jpg" alt="About Age Academy" class="about-img img-hover-zoom d-block mx-auto rounded-4 shadow-lg" style="width: 100%; max-width: 450px; height: 600px; object-fit: cover;" />
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services" class="section-padding overflow-hidden bg-light">
+    <div class="container-fluid px-3 px-lg-5">
+        <div class="row m-0">
+            <div class="col-12 text-center mb-5">
+                <div class="section-title">
+                    <h1 class="display-4 fw-semibold">Our Services</h1>
+                     <div class="line"></div><br>
+                    <p>Empowering you with modern professional skills for a sustainable future.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gy-4 m-0 justify-content-center">
+            <!-- Service 1: Cosmetic Training -->
+            <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
+                <div class="service-box text-center p-4">
+                    <div class="iconbox mb-3 mx-auto"><img src="my_assets/images/services_icons1/cosmetics_training.png" alt="S"></div>
+                    <h5>Cosmetic Training</h5>
+                    <p>Gain expert knowledge in skincare science. Our curriculum covers bridal aesthetics, skin analysis, 
+                        and professional application techniques to help you launch a successful beauty career.</p>
+                    <div class="service-detail mt-3">
+                        <small>Includes certification and hands-on practical sessions with international beauty standards.</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2: Soap Making -->
+            <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
+                <div class="service-box text-center p-4">
+                    <div class="iconbox mb-3 mx-auto"><img src="my_assets/images/services_icons1/soap_1.png" alt="S"></div>
+                    <h5>Soap Making</h5>
+                    <p>Master the craft of organic and industrial soap production. We teach you how to formulate medicated soaps, 
+                        laundry detergents, and luxury herbal bars using safe, high-quality chemical compositions.</p>
+                    <div class="service-detail mt-3">
+                        <small>Focuses on cost-effective manufacturing and market-ready packaging for aspiring entrepreneurs.</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3: Business Empowerment -->
+            <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
+                <div class="service-box text-center p-4">
+                    <div class="iconbox mb-3 mx-auto"><img src="my_assets/images/services_icons1/business empowerment.png" alt="S"></div>
+                    <h5>Business Empowerment</h5>
+                    <p>Transition from a student to a CEO with our specialized business coaching.
+                         We provide mentorship on startup management, financial literacy, 
+                         and hollistic wellness strategies to ensure your brand survives.</p>
+                    <div class="service-detail mt-3">
+                        <small>Tailored for artisans and technicians looking to scale their local workshops into modern enterprises.</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4: Digital Marketing (HIDDEN BY DEFAULT) -->
+            <div class="col-lg-4 col-sm-6 d-flex justify-content-center extra-service" style="display: none;">
+                <div class="service-box text-center p-4">
+                    <div class="iconbox mb-3 mx-auto"><img src="my_assets/images/services_icons1/digital_marketing.png" alt="S"></div>
+                    <h5>Digital Marketing</h5>
+                    <p>Learn to dominate the digital landscape through strategic online growth. 
+                        Our course covers Social Media Management, SEO optimization, and high-conversion Google Ads to drive massive traffic to any business.</p>
+                    <div class="service-detail mt-3">
+                        <small>Master the tools needed to manage global brands or grow your own personal business presence online.</small>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Service 5: Graphic Design (HIDDEN BY DEFAULT) -->
+            <div class="col-lg-4 col-sm-6 d-flex justify-content-center extra-service" style="display: none;">
+                <div class="service-box text-center p-4">
+                    <div class="iconbox mb-3 mx-auto"><img src="my_assets/images/services_icons1/graphics_design.png" alt="S"></div>
+                    <h5>Graphic Design</h5>
+                    <p>Unlock your creativity with professional visual communication. We provide intensive training in Adobe Photoshop and Illustrator, 
+                        teaching you how to create logos, brand identities, and stunning marketing materials.</p>
+                    <div class="service-detail mt-3">
+                        <small>Perfect for creative individuals wanting to work as freelancers or in top-tier advertising agencies.</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 6: Web Development (HIDDEN BY DEFAULT) -->
+            <div class="col-lg-4 col-sm-6 d-flex justify-content-center extra-service" style="display: none;">
+                <div class="service-box text-center p-4">
+                    <div class="iconbox mb-3 mx-auto"><img src="my_assets/images/services_icons1/webdev.png" alt="S"></div>
+                    <h5>Web Development</h5>
+                    <p>Build the future of the internet with our coding bootcamp. From HTML/CSS to responsive e-commerce platforms, 
+                        you will learn how to develop high-performance websites that look great on smartphones and desktops.</p>
+                    <div class="service-detail mt-3">
+                        <small>Hands-on project building ensures you have a professional portfolio ready by the end of the course.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toggle Button Container -->
+        <div class="row m-0 mt-5">
+            <div class="col-12 text-center">
+                <button id="toggleServicesBtn" class="btn btn-primary px-5 py-3 fw-bold shadow">View All Services</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIAL SECTION -->
+<section id="testimonials" class="bg-light py-5">
+    <div class="container">
+        <h2 class="section-title text-center">Testimonials</h2>
+        <div class="line"></div><br>
+        <p class="text-center mb-5 lead">What our students say about us.</p>
+
+        <div class="row" id="testimonialCarousel">
+            
+            <!-- Testimony 1: Blanche -->
+            <div class="col-md-4">
+                <div class="testimonial-card p-4 shadow-sm">
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <img src="" alt="Ble A." class="testimonial-img mb-3">
+                        <div class="text-center">
+                            <h5 class="mb-0 fw-bold">Ble A.</h5>
+                            <p class="text-muted mb-0 small">Vocational Student</p>
+                        </div> 
+                    </div>
+                    <p class="mb-0 text-center" style="text-transform: lowercase;">"I learned more in 3 months here than i did in years of self-study. The instructors are world-class."</p>
+                    <div class="rating mt-3 text-center">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimony 2: Mado -->
+            <div class="col-md-4" style="display: none;">
+                <div class="testimonial-card p-4 shadow-sm">
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <img src="" alt="Mado S." class="testimonial-img mb-3">
+                        <div class="text-center">
+                            <h5 class="mb-0 fw-bold">Mado S.</h5>
+                            <p class="text-muted mb-0 small">Organic Soap Specialist</p>
+                        </div>
+                    </div>
+                    <p class="mb-0 text-center">"The soap-making course was incredibly detailed. I can now produce high-quality organic soaps."</p>
+                    <div class="rating mt-3 text-center">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimony 3: Anthony -->
+            <div class="col-md-4" style="display: none;">
+                <div class="testimonial-card p-4 shadow-sm">
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <img src="Anthony Kimbi" alt="Anthony K." class="testimonial-img mb-3">
+                        <div class="text-center">
+                            <h5 class="mb-0 fw-bold">Anthony Kimbi</h5>
+                            <p class="text-muted mb-0 small">Beauty Entrepreneur</p>
+                        </div>
+                    </div>
+                    <p class="mb-0 text-center">"The cosmetic training at age academy transformed my life. I am now running my own successful beauty brand."</p>
+                    <div class="rating mt-3 text-center">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SINGLE CENTERED NAVIGATION -->
+        <div class="carousel-controls-container text-center mt-4">
+            <button class="btn btn-outline-primary rounded-circle me-2" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                &lt;
+            </button>
+            <button class="btn btn-outline-primary rounded-circle" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                &gt;
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section id="faq" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center">Frequently Asked Questions</h2>
+        <div class="line"></div><br>
+        <p class="text-center mb-5 lead">Find answers to common questions about our vocational and creative services.</p>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="faq-container">
+                    
+                    <!-- Cosmetics Training -->
+                    <div class="faq-item border-bottom">
+                        <div class="faq-question d-flex justify-content-between align-items-center py-3" style="cursor: pointer;">
+                            <span>What is covered in the Cosmetics Training program?</span>
+                            <i class="fas fa-caret-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            <p>Our **Cosmetics Training** covers skincare formulation, organic ingredient sourcing, and safety standards to help you launch professional beauty products.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Soap Making -->
+                    <div class="faq-item border-bottom">
+                        <div class="faq-question d-flex justify-content-between align-items-center py-3" style="cursor: pointer;">
+                            <span>Do I need prior experience for the Soap Making course?</span>
+                            <i class="fas fa-caret-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            <p>No experience is required! Our **Soap Making** modules start with basic cold-process techniques and advance to decorative and organic soap formulations.</p>
+                        </div>
+                    </div>
+
+                    <!-- Business Empowerment -->
+                    <div class="faq-item border-bottom">
+                        <div class="faq-question d-flex justify-content-between align-items-center py-3" style="cursor: pointer;">
+                            <span>How does Business Empowerment help graduates?</span>
+                            <i class="fas fa-caret-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            <p>Our **Business Empowerment** service provides mentorship, branding advice, and financial literacy to help you turn your vocational skills into a profitable enterprise.</p>
+                        </div>
+                    </div>
+
+                    <!-- Music Production -->
+                    <div class="faq-item border-bottom">
+                        <div class="faq-question d-flex justify-content-between align-items-center py-3" style="cursor: pointer;">
+                            <span>What software do you use for Music Production training?</span>
+                            <i class="fas fa-caret-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            <p>We train students on industry-standard DAWs including **FL Studio, Ableton Live, and Pro Tools**, covering everything from beat making to final mastering.</p>
+                        </div>
+                    </div>
+
+                    <!-- Graphics Design -->
+                    <div class="faq-item border-bottom">
+                        <div class="faq-question d-flex justify-content-between align-items-center py-3" style="cursor: pointer;">
+                            <span>Can I learn Graphics Design without a high-end computer?</span>
+                            <i class="fas fa-caret-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            <p>Yes! While a good PC helps, we teach **Graphics Design** principles using tools optimized for various hardware, focusing on Adobe Photoshop and Illustrator techniques.</p>
+                        </div>
+                    </div>
+
+                    <!-- Web Development -->
+                    <div class="faq-item border-bottom">
+                        <div class="faq-question d-flex justify-content-between align-items-center py-3" style="cursor: pointer;">
+                            <span>Are the websites built during training mobile-friendly?</span>
+                            <i class="fas fa-caret-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            <p>Absolutely. Our **Web Development** course prioritizes "Mobile-First" design, ensuring all projects function perfectly on smartphones, tablets, and desktops.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <button class="btn btn-outline-primary" onclick="window.location.href='faqs.html'">View All FAQs</button>
+        </div>
+    </div>
+</section>
+
+<!-- NEWS BLOG SECTION (9 Cards) -->
+<section id="blog" class="section-padding bg-light">
+    <div class="container-fluid px-3 px-lg-5">
+        <div class="row m-0">
+            <div class="col-12 text-center slide-top-down">
+                <div class="section-title">
+                    <h1 class="display-4 fw-semibold">Latest News</h1>
+                     <div class="line"></div><br>
+                    <p>Stay updated with our 2026 professional insights</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4 m-0 slide-top-down">
+            <!-- Card 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm blog-card h-100">
+                    <img src="my_assets/images/my_cosmetics1/agentol.jpg" class="card-img-top blog-img" alt="Agentol_pic">
+                    <div class="card-body p-4">
+                        <span class="badge bg-light text-primary mb-2">January 2026</span>
+                        <h5 class="card-title fw-bold">The Future of Cosmetics</h5>
+                        <p class="card-text">Discover new organic formulas for 2026 skincare.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm btn-hover-effect">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm blog-card h-100">
+                    <img src="my_assets/images/my_cosmetics1/bathing_soap_sample.jpg" class="card-img-top blog-img" alt="Soap Sample">
+                    <div class="card-body p-4">
+                        <span class="badge bg-light text-primary mb-2">January 2026</span>
+                        <h5 class="card-title fw-bold">Soap Manufacturing</h5>
+                        <p class="card-text">Minimalism and AI-driven interfaces in 2026.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm btn-hover-effect">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm blog-card h-100">
+                    <img src="my_assets/images/my_cosmetics1/zida_small_sachette.jpg" class="card-img-top blog-img" alt="Zida_design">
+                    <div class="card-body p-4">
+                        <span class="badge bg-light text-primary mb-2">January 2026</span>
+                        <h5 class="card-title fw-bold">Marketing Strategy</h5>
+                        <p class="card-text">How to scale your small business in months.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm btn-hover-effect">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm blog-card h-100">
+                    <img src="my_assets/images/my_cosmetics1/agentol.jpg" class="card-img-top blog-img" alt="Agentol_pic">
+                    <div class="card-body p-4">
+                        <span class="badge bg-light text-primary mb-2">February 2026</span>
+                        <h5 class="card-title fw-bold">Digital Presence</h5>
+                        <p class="card-text">Why your brand needs a 2026 web refresh.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm btn-hover-effect">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm blog-card h-100">
+                    <img src="my_assets/images/my_cosmetics1/bathing_soap_sample.jpg" class="card-img-top blog-img" alt="Soap Sample">
+                    <div class="card-body p-4">
+                        <span class="badge bg-light text-primary mb-2">February 2026</span>
+                        <h5 class="card-title fw-bold">Organic Sourcing</h5>
+                        <p class="card-text">Finding the best raw materials in Cameroon.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm btn-hover-effect">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm blog-card h-100">
+                    <img src="my_assets/images/my_cosmetics1/zida_small_sachette.jpg" class="card-img-top blog-img" alt="Zida_design">
+                    <div class="card-body p-4">
+                        <span class="badge bg-light text-primary mb-2">March 2026</span>
+                        <h5 class="card-title fw-bold">Success Stories</h5>
+                        <p class="card-text">Meet the students who launched their labs.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm btn-hover-effect">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- Card 7 (Extra Hidden) -->
+            <div class="col-lg-4 col-md-6 extra-article" style="display: none;">
+                <div class="card border-0 shadow-sm blog-card h-100">
+                    <img src="my_assets/images/my_cosmetics1/agentol.jpg" class="card-img-top blog-img" alt="Agentol_pic">
+                    <div class="card-body p-4">
+                        <span class="badge bg-light text-primary mb-2">April 2026</span>
+                        <h5 class="card-title fw-bold">Innovation Lab</h5>
+                        <p class="card-text">Explore our upcoming research facility in Bamenda.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm btn-hover-effect">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8 (Extra Hidden) -->
+            <div class="col-lg-4 col-md-6 extra-article" style="display: none;">
+                <div class="card border-0 shadow-sm blog-card h-100">
+                    <img src="my_assets/images/my_cosmetics1/bathing_soap_sample.jpg" class="card-img-top blog-img" alt="Soap Sample">
+                    <div class="card-body p-4">
+                        <span class="badge bg-light text-primary mb-2">May 2026</span>
+                        <h5 class="card-title fw-bold">Fragrance Blending</h5>
+                        <p class="card-text">The art of creating unique scents from local herbs.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm btn-hover-effect">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9 (Extra Hidden) -->
+            <div class="col-lg-4 col-md-6 extra-article" style="display: none;">
+                <div class="card border-0 shadow-sm blog-card h-100">
+                    <img src="my_assets/images/my_cosmetics1/zida_small_sachette.jpg" class="card-img-top blog-img" alt="Zida_design">
+                    <div class="card-body p-4">
+                        <span class="badge bg-light text-primary mb-2">June 2026</span>
+                        <h5 class="card-title fw-bold">Eco Packaging</h5>
+                        <p class="card-text">Reducing plastic waste in the beauty industry.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm btn-hover-effect">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toggle Button -->
+        <div class="row m-0 mt-5">
+            <div class="col-12 text-center">
+                <button id="loadMoreBtn" class="btn btn-primary px-5 py-3 fw-bold shadow">Load More Articles</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="section-padding overflow-hidden">
+    <div class="container-fluid px-3 px-lg-5">
+        <div class="row m-0">
+            <div class="col-12 text-center slide-top-down">
+                <div class="section-title">
+                    <h1 class="display-4 fw-semibold text-white">Contact Us</h1>
+                    <p class="text-white-50">Have questions? Get in touch with our team today</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center m-0 slide-top-down">
+            <div class="contact-box col-lg-8">
+             <form id="contactForm" class="row g-3 p-4 p-lg-5 contact-form-glass shadow-lg needs-validation" novalidate>
+    
+    <!-- 1. Full Name -->
+    <div class="col-lg-6 position-relative">
+        <label class="form-label fw-bold text-white">Full Name</label>
+        <input type="text" class="form-control" placeholder="Enter your name" required>
+    </div>
+
+    <!-- 2. Email Address -->
+    <div class="col-lg-6 position-relative">
+        <label class="form-label fw-bold text-white">Email Address</label>
+        <input type="email" class="form-control" placeholder="name@example.com" required>
+    </div>
+    
+    <!-- 3. Subject -->
+    <div class="col-12 position-relative">
+        <label class="form-label fw-bold text-white">Subject</label>
+        <input type="text" class="form-control" placeholder="Enter subject" required> 
+    </div>
+
+    <!-- 4. Message -->
+    <div class="col-12 position-relative">
+        <label class="form-label fw-bold text-white">Message</label>
+        <textarea rows="5" class="form-control" placeholder="Write your message here..." required></textarea>
+    </div>
+
+    <!-- 5. Success Message (Hidden by default via d-none) -->
+    <div id="form-feedback" class="col-12 mt-3 d-none">
+        <div class="alert alert-success text-center fw-bold">
+            <i class="fas fa-check-circle me-2"></i> Success! Your message has been sent.
+        </div>
+    </div>
+
+    <!-- 6. Submit Button -->
+    <div class="col-12 text-center mt-4">
+        <button type="submit" class="btn btn-primary px-5 py-3 btn-hover-effect fw-bold">Send Message</button>
+    </div>
+</form>
+
+            </div>
+        </div>
+
+        <!-- CONTACT INFO STRIP -->
+        <div class="row justify-content-center m-0 mt-5 slide-top-down">
+            <div class="col-lg-10">
+                <div class="row text-center text-white g-4">
+                    <div class="col-md-4">
+                        <div class="contact-info-item">
+                            <div class="icon-box-circle mb-3 mx-auto">
+                                <img src="my_assets/icons/png_icons/location-50.png" alt="Location">
+                            </div>
+                            <h5 class="fw-bold">Location</h5>
+                            <p class="text-white-50">Commercial Avenue, Bamenda, Cameroon</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-info-item">
+                            <div class="icon-box-circle mb-3 mx-auto">
+                                <img src="my_assets/icons/png_icons/phone-50.png" alt="Phone">
+                            </div>
+                            <h5 class="fw-bold">Phone Number</h5>
+                            <p class="text-white-50">+237 676580818</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-info-item">
+                            <div class="icon-box-circle mb-3 mx-auto">
+                                <img src="my_assets/icons/png_icons/email-100.png" alt="Email">
+                            </div>
+                            <h5 class="fw-bold">Email Address</h5>
+                            <p class="text-white-50">info@ageacademy.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Close container-fluid -->
+</section> <!-- Close section id="contact" -->
+
+<!-- 4-COLUMN MODERN FOOTER -->
+<footer class="footer-section">
+    <div class="container-fluid">
+        <div class="row gy-5 justify-content-between m-0 p-0">
+
+            <!-- Col 1: Brand -->
+            <div class="col-lg-3 col-md-6">
+                <h2 class="navbar-brand mb-3">AB TECH</h2>
+                <p>Empowering professionals through world-class skills training in 2026. Join Age Academy to start your journey.</p>
+                <div class="social-links d-flex gap-3">
+                    <a href="#" class="social-icon"><img src="my_assets/icons/png_icons/icons8-facebook-color-50-2.png" alt="Facebook" width="30"></a>
+                    <a href="#" class="social-icon"><img src="my_assets/icons/png_icons/icons8-instagram-color-50.png" alt="Instagram" width="30"></a>
+                    <a href="#" class="social-icon"><img src="my_assets/icons/png_icons/youtu.be-color.png" alt="YouTube" width="30"></a>
+                </div>
+            </div>
+
+            <!-- Col 2: Navigation -->
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-heading mb-4">Navigation</h5>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
+                    <li><a href="#about" class="text-white-50 text-decoration-none">About</a></li>
+                    <li><a href="#services" class="text-white-50 text-decoration-none">Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Quick Links -->
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-heading mb-4">Quick Links</h5>
+                <ul class="list-unstyled footer-list">
+                    <li><a href="#portfolio" class="text-white-50 text-decoration-none">Gallery</a></li>
+                    <li><a href="#team" class="text-white-50 text-decoration-none">Team</a></li>
+                    <li><a href="#contact" class="text-white-50 text-decoration-none">Support</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Contact & Subscription -->
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading mb-4">Contact Info</h5>
+                <p class="text-white-50"><strong>Address:</strong> Bamenda, Cameroon</p>
+                <p class="text-white-50"><strong>Email:</strong> info@ageacademy.com</p>
+                
+                <div class="subscribe-form mt-4">
+                    <h6 class="text-white mb-3">Subscribe to Newsletter</h6>
+                    <div class="input-group input-group-sm" style="max-width: 250px;">
+                        <input type="email" class="form-control bg-dark border-secondary text-white" placeholder="Email Address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Syntax adjustment: Closed Footer Row div -->
+        
+        <div class="footer-bottom mt-5 py-4 border-top border-secondary text-center">
+            <p class="mb-0 text-white-50">© 2026 Age Academy by <strong class="text-primary">AB TECH</strong>. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="backToTop" class="btn shadow-lg">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- Offline Scripts -->
+<script src="js/jquery-jquery-f79d5f1/dist/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // 1. Disable Right-Click
+        $(document).on("contextmenu", function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // 2. Disable F12 (DevTools), Ctrl+Shift+I, Ctrl+U (View Source)
+        $(document).on("keydown", function(e) {
+            if (e.keyCode == 123) return false;
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+            if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) return false;
+        });
+
+        // 3. Disable Text Selection
+        $('body').css({
+            '-webkit-user-select': 'none',
+            '-moz-user-select': 'none',
+            '-ms-user-select': 'none',
+            'user-select': 'none'
+        });
+    });
+</script>
+
+</body>
+</html>
+
