@@ -23,7 +23,7 @@
     "courses": "Networking, Cyber Security", 
     "scores": [88, 91, 84], 
     "city":  "Douala",   
-    "guardian": "Peter. Mbua" 
+    "guardian": "Peter Mbua" 
   },
 
     { "id": 103, 
@@ -67,4 +67,5 @@
   
   ]
 }
+
 
