@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     // 1. Initial State: Hide extra services and remove d-flex to ensure they disappear
     $('.extra-service').hide().removeClass('d-flex');
@@ -560,68 +559,43 @@ $(document).ready(function() {
 /* ==========================================================================
    UPDATED DATABASE LOGIC: ARRAY SCORES & DYNAMIC ADMIN KEYS
    ========================================================================== */
+/* ==========================================================================
+   JSON DATABASE PORTAL: DUAL-FILE FETCH & .forEach()
+   ========================================================================== */
 
 // 1. ADMIN SEARCH (RIGHT SIDE)
 $('#btnAdminEnter').on('click', function() {
     const adminInput = $('#adminInputSearch').val().trim().toLowerCase();
 
-    // Fetch Admin JSON (Using your 'admin.json' file)
-    $.getJSON('json/admin.json', function(data) {
+    // Fetch Admins - Updated filename to admins.json
+    $.getJSON('json/admins.json', function(data) {
         let foundAdmin = null;
         
-        // Note: Your JSON uses "Admins" with a capital A
+        // Casing corrected to match your JSON (Admins with capital A)
         data.Admins.forEach(admin => {
             if (admin.Name.toLowerCase() === adminInput) foundAdmin = admin;
         });
 
         if (foundAdmin) {
-            // Check for both 'Edmin' or 'Admin' keys from your JSON
-            let roleStatus = foundAdmin.Edmin || foundAdmin.Admin || "No";
-            
-            let adminRow = `<tr>
-                <td>${foundAdmin.ID}</td>
-                <td class="fw-bold">${foundAdmin.Name}</td>
-                <td>${foundAdmin.Email}</td>
-                <td><span class="badge bg-dark">Admin: ${roleStatus}</span></td>
-            </tr>`;
-            
-            $('#adminBody').html(adminRow).hide().fadeIn(600);
-            $('#adminTableContainer').show();
-            $('#adminEmptyState').hide();
+            // Mapping keys: ID, Name, Email, and the Admin status (handling Edmin/Admin key)
+            let adminStatus = foundAdmin.Admin || foundAdmin.Edmin;
+            $('#adminBody').html(`<tr><td>${foundAdmin.ID}</td><td class="fw-bold">${foundAdmin.Name}</td><td>${foundAdmin.Email}</td><td><span class="badge bg-dark">${adminStatus}</span></td></tr>`);
+            $('#adminTableContainer').fadeIn(400);
 
-            // 2. FETCH ALL STUDENTS (Admin Privilege)
+            // Fetch ALL Students (Admin Privilege)
             $.getJSON('json/students.json', function(sData) {
                 let rows = "";
                 sData.students.forEach(s => {
-                    // CALCULATE AVERAGE SCORE FROM ARRAY
-                    let sum = 0;
-                    s.scores.forEach(val => sum += val);
-                    let avg = (sum / s.scores.length).toFixed(1);
-
-                    rows += `<tr>
-                        <td><span class="badge bg-primary">${s.id}</span></td>
-                        <td class="fw-bold text-dark">${s.fullName}</td>
-                        <td>${s.age}</td>
-                        <td>${s.gender}</td>
-                        <td><small>${s.email}</small></td>
-                        <td>${s.enrolled}</td>
-                        <td>${s.courses}</td>
-                        <td><strong class="text-success">${avg}%</strong> <br><small class="text-muted">(${s.scores.join(', ')})</small></td>
-                        <td>${s.city}</td>
-                        <td>${s.guardian}</td>
-                    </tr>`;
+                    // Displaying score array joined by commas
+                    rows += `<tr><td><span class="badge bg-primary">${s.id}</span></td><td class="fw-bold">${s.fullName}</td><td>${s.age}</td><td>${s.gender}</td><td>${s.email}</td><td>${s.enrolled}</td><td>${s.courses}</td><td><strong class="text-success">${s.scores.join(', ')}</strong></td><td>${s.city}</td><td>${s.guardian}</td></tr>`;
                 });
-
-                $('#lockUI').fadeOut(400, () => {
+                $('#studentEmptyState').fadeOut(300, () => {
                     $('#studentBody').html(rows);
                     $('#studentTableContainer').fadeIn(800);
-                    $('#accessIndicator').text('Admin Verified').removeClass('bg-danger').addClass('bg-success');
                 });
             });
-        } else {
-            alert("Admin Access Denied: Name not found.");
-        }
-    }).fail(() => alert("Error: Could not load admin.json from GitHub!"));
+        } else { alert("Admin Not Found."); }
+    });
 });
 
 // 2. STUDENT SEARCH (LEFT SIDE)
@@ -635,33 +609,13 @@ $('#btnStudentEnter').on('click', function() {
         });
 
         if (foundS) {
-            // CALCULATE INDIVIDUAL AVERAGE
-            let sum = 0;
-            foundS.scores.forEach(val => sum += val);
-            let avg = (sum / foundS.scores.length).toFixed(1);
-
-            let row = `<tr>
-                <td><span class="badge bg-primary">${foundS.id}</span></td>
-                <td class="fw-bold">${foundS.fullName}</td>
-                <td>${foundS.age}</td>
-                <td>${foundS.gender}</td>
-                <td><small>${foundS.email}</small></td>
-                <td>${foundS.enrolled}</td>
-                <td>${foundS.courses}</td>
-                <td><strong class="text-success">${avg}%</strong> <br><small class="text-muted">Avg of: ${foundS.scores.join(', ')}</small></td>
-                <td>${foundS.city}</td>
-                <td>${foundS.guardian}</td>
-            </tr>`;
-
-            $('#lockUI').fadeOut(300, () => {
+            // Displaying individual score array joined by commas
+            let row = `<tr><td><span class="badge bg-primary">${foundS.id}</span></td><td class="fw-bold">${foundS.fullName}</td><td>${foundS.age}</td><td>${foundS.gender}</td><td>${foundS.email}</td><td>${foundS.enrolled}</td><td>${foundS.courses}</td><td><strong class="text-success">${foundS.scores.join(', ')}</strong></td><td>${foundS.city}</td><td>${foundS.guardian}</td></tr>`;
+            $('#studentEmptyState').fadeOut(300, () => {
                 $('#studentBody').html(row);
                 $('#studentTableContainer').fadeIn(800);
-                $('#studentEmptyState').hide();
-                $('#accessIndicator').text('Record Found').removeClass('bg-danger').addClass('bg-warning text-dark');
             });
-        } else {
-            alert("Student Record Not Found.");
-        }
+        } else { alert("Student Not Found."); }
     });
 });
 
