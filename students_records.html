@@ -79,7 +79,7 @@
                         </div>
                         <div id="studentEmptyState" class="text-center py-5">
                             <i class="fas fa-search fa-3x text-muted mb-3"></i>
-                            <p class="text-muted">Enter student first name above to display record.</p>
+                            <p class="text-muted">Enter a student name above to display record.</p>
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                             </table>
                         </div>
                         <div id="adminEmptyState" class="text-center py-4">
-                            <p class="text-muted small"> Admin Verification. </p>
+                            <p class="text-muted small">Awaiting Admin Verification...</p>
                         </div>
                     </div>
                 </div>
@@ -143,6 +143,79 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/main.js"></script>
 
+
+
+<script>
+    $(document).ready(function() {
+        // 1. Disable Right-Click
+        $(document).on("contextmenu", function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+
+        // 2. Disable F12 (DevTools), Ctrl+Shift+I, Ctrl+U (View Source)
+        $(document).on("keydown", function(e) {
+            if (e.keyCode == 123) return false;
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+            if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) return false;
+        });
+
+        // 3. Disable Text Selection
+        $('body').css({
+            '-webkit-user-select': 'none',
+            '-moz-user-select': 'none',
+            '-ms-user-select': 'none',
+            'user-select': 'none'
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        // 1. Disable Right-Click
+        $(document).on("contextmenu", function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // 2. Disable F12 (DevTools), Ctrl+Shift+I, Ctrl+U (View Source)
+        $(document).on("keydown", function(e) {
+            // F12
+            if (e.keyCode == 123) {
+                return false;
+            }
+            // Ctrl + Shift + I (Inspect)
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            // Ctrl + Shift + J (Console)
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            // Ctrl + U (View Source)
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+            // Ctrl + S (Save Page)
+            if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {
+                return false;
+            }
+        });
+
+        // 3. Disable Text Selection (Copying)
+        $('body').css({
+            '-webkit-user-select': 'none',
+            '-moz-user-select': 'none',
+            '-ms-user-select': 'none',
+            'user-select': 'none'
+        });
+    });
+</script>
+
+
 </body>
 </html>
-
