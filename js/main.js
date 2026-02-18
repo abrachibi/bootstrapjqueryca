@@ -567,20 +567,39 @@ $(document).ready(function() {
    OFFLINE DATABASE: SEARCH & FORCED AUTO-CLEAR
    ========================================================================== */
 
+/* ==========================================================================
+   OFFLINE DATABASE: FORCED INPUT RESET LOGIC
+   ========================================================================== */
+
 // 1. ADMIN SEARCH (RIGHT SIDE)
 $('#btnAdminEnter').on('click', function() {
-    const adminInput = $('#adminInputSearch').val().trim().toLowerCase();
+    const adminField = document.getElementById('adminInputSearch');
+    const adminInput = adminField.value.trim().toLowerCase();
 
     $.getJSON('json/admins.json', function(data) {
         let foundAdmin = data.Admins.find(a => a.Name.toLowerCase() === adminInput);
 
         if (foundAdmin) {
-            // ... your existing display logic ...
-            
-            // --- THE FIX: FORCED CLEAR & LOSE FOCUS ---
-            $('#adminInputSearch').val("").blur(); 
+            // SUCCESS: Build and show Admin Row
+            $('#adminBody').html(`<tr><td>${foundAdmin.ID}</td><td class="fw-bold">${foundAdmin.Name}</td><td>${foundAdmin.Email}</td><td><span class="badge bg-dark">${foundAdmin.Admin}</span></td></tr>`);
+            $('#adminTableContainer').fadeIn(400);
+            $('#adminEmptyState').hide();
 
-            // (The rest of your admin privilege logic here)
+            // --- THE HARD RESET: CLEARS THE BAR INSTANTLY ---
+            adminField.value = ""; // Vanilla JS bypasses jQuery locks
+            adminField.blur();     // Removes the cursor from the bar
+
+            // Load Student Database (Admin Privilege)
+            $.getJSON('json/students.json', function(studentData) {
+                let allRows = "";
+                studentData.students.forEach(s => {
+                    allRows += `<tr><td>${s.id}</td><td>${s.fullName}</td><td>${s.age}</td><td>${s.gender}</td><td>${s.email}</td><td>${s.enrolled}</td><td>${s.courses}</td><td>${s.scores.join(', ')}</td><td>${s.city}</td><td>${s.guardian}</td></tr>`;
+                });
+                $('#studentEmptyState').fadeOut(300, () => {
+                    $('#studentBody').html(allRows);
+                    $('#studentTableContainer').fadeIn(800);
+                });
+            });
         } else {
             alert("Admin not recognized.");
         }
@@ -589,17 +608,24 @@ $('#btnAdminEnter').on('click', function() {
 
 // 2. STUDENT SEARCH (LEFT SIDE)
 $('#btnStudentEnter').on('click', function() {
-    const studentInput = $('#studentInputSearch').val().trim().toLowerCase();
+    const studentField = document.getElementById('studentInputSearch');
+    const studentInput = studentField.value.trim().toLowerCase();
 
     $.getJSON('json/students.json', function(data) {
         let foundS = data.students.find(s => s.firstName.toLowerCase() === studentInput);
 
         if (foundS) {
-            // ... your existing display logic ...
+            // SUCCESS: Build and show Student Row
+            let row = `<tr><td>${foundS.id}</td><td>${foundS.fullName}</td><td>${foundS.age}</td><td>${foundS.gender}</td><td>${foundS.email}</td><td>${foundS.enrolled}</td><td>${foundS.courses}</td><td>${foundS.scores.join(', ')}</td><td>${foundS.city}</td><td>${foundS.guardian}</td></tr>`;
+            
+            // --- THE HARD RESET: CLEARS THE BAR INSTANTLY ---
+            studentField.value = ""; // Vanilla JS bypasses jQuery locks
+            studentField.blur();     // Removes the cursor from the bar
 
-            // --- THE FIX: FORCED CLEAR & LOSE FOCUS ---
-            $('#studentInputSearch').val("").blur(); 
-
+            $('#studentEmptyState').fadeOut(300, () => {
+                $('#studentBody').html(row);
+                $('#studentTableContainer').fadeIn(800);
+            });
         } else {
             alert("Student not found.");
         }
