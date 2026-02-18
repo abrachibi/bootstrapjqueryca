@@ -1,8 +1,23 @@
 
 {
-  "admins": [
-    { "id": "ADM-001", "firstName": "Elvis", "fullName": "Elvis Admin", "email": "elvis@age.cm", "role": "Super Admin" },
-    { "id": "ADM-002", "firstName": "Tartiana", "fullName": "Tartiana Manager", "email": "tartiana@age.cm", "role": "Manager" },
-    { "id": "ADM-003", "firstName": "Blanche", "fullName": "Blanche Registrar", "email": "blanche@age.cm", "role": "Registrar" }
+  "Admins": [
+    { "ID": "01", 
+    "Name": "Elvis",      
+    "Email": "elvis@example.com",
+    "Edmin": "yes"
+  },
+
+    { "ID": "02", 
+    "Name": "Tartiana",
+    "Email": "tartiana@example.com",
+    "Admin": "yes"
+  },
+
+    { "ID": "03", 
+    "Name": "Blanche",
+    "Email": "blanche@example.com",
+    "Admin": "yes"
+  }
   ]
 }
+
