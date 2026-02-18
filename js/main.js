@@ -620,5 +620,68 @@ $('#btnStudentEnter').on('click', function() {
     });
 });
 
+/* ==========================================================================
+   OFFLINE DATABASE: SEARCH & AUTO-CLEAR LOGIC
+   ========================================================================== */
+
+$(document).ready(function() {
+
+    // 1. ADMIN SEARCH LOGIC (RIGHT SIDE)
+    $('#btnAdminEnter').on('click', function() {
+        const $inputField = $('#adminInputSearch');
+        const query = $inputField.val().trim().toLowerCase();
+        
+        // Find Admin in your academyData object
+        const admin = academyData.admins.find(a => a.Name.toLowerCase() === query);
+
+        if (admin) {
+            // SUCCESS LOGIC
+            let adminRow = `<tr><td>${admin.ID}</td><td class="fw-bold">${admin.Name}</td><td>${admin.Email}</td><td><span class="badge bg-dark">${admin.Admin}</span></td></tr>`;
+            $('#adminBody').html(adminRow);
+            $('#adminTableContainer').fadeIn(400);
+            $('#adminEmptyState').hide();
+
+            // --- THE MAGIC: CLEAR THE ENTRY FIELD ---
+            $inputField.val(''); 
+
+            // Reveal Students (Admin Privilege)
+            let allStudents = "";
+            academyData.students.forEach(function(s) {
+                allStudents += `<tr><td>${s.ID}</td><td>${s.Name}</td><td>${s.Age}</td><td>${s.Gender}</td><td>${s.Email}</td><td>${s.Enrolled}</td><td>${s.Courses}</td><td>${s.Scores.join(', ')}</td><td>${s.City}</td><td>${s.Guardian_Name}</td></tr>`;
+            });
+            
+            $('#studentEmptyState').fadeOut(300, function() {
+                $('#studentBody').html(allStudents);
+                $('#studentTableContainer').fadeIn(800);
+            });
+        } else {
+            alert("Admin not recognized.");
+        }
+    });
+
+    // 2. STUDENT SEARCH LOGIC (LEFT SIDE)
+    $('#btnStudentEnter').on('click', function() {
+        const $inputField = $('#studentInputSearch');
+        const query = $inputField.val().trim().toLowerCase();
+        
+        // Find Student in your academyData object
+        const student = academyData.students.find(s => s.firstName.toLowerCase() === query);
+
+        if (student) {
+            // SUCCESS LOGIC
+            let singleRow = `<tr><td>${student.id}</td><td class="fw-bold">${student.fullName}</td><td>${student.age}</td><td>${student.gender}</td><td>${student.email}</td><td>${student.enrolled}</td><td>${student.courses}</td><td>${student.scores.join(', ')}</td><td>${student.city}</td><td>${student.guardian}</td></tr>`;
+            
+            // --- THE MAGIC: CLEAR THE ENTRY FIELD ---
+            $inputField.val(''); 
+
+            $('#studentEmptyState').fadeOut(300, function() {
+                $('#studentBody').html(singleRow);
+                $('#studentTableContainer').fadeIn(800);
+            });
+        } else {
+            alert("Student not found.");
+        }
+    });
+});
 
 });
