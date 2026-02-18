@@ -1,7 +1,71 @@
 {
   "students": [
-    { "id": 101, "firstName": "Awah", "fullName": "Awah Vitalis", "age": 22, "gender": "Male", "email": "awah.v@ageacademy.cm", "enrolled": "2025-01-15", "courses": "Cosmetics", "scores": 88, "city": "Bamenda", "guardian": "Pa Awah" },
-    { "id": 102, "firstName": "Linda", "fullName": "Linda Mbua", "age": 19, "gender": "Female", "email": "linda.m@ageacademy.cm", "enrolled": "2025-02-10", "courses": "Graphic Design", "scores": 92, "city": "Buea", "guardian": "Mrs. Mbua" }
+    { "id": 101, 
+    "firstName": "Awah", 
+    "fullName":  "Awah Vitalis", 
+    "age": 21, 
+    "gender": "Male",   
+    "email": "awah.v@example.com",  
+    "enrolled": "Yes",  
+    "courses": "Web Dev, Databases",         
+    "scores": [95, 85, 90], 
+    "city":  "Buea",     
+    "guardian": "None" 
+  },
+
+    { "id": 102, 
+    "firstName": "Linda", 
+    "fullName": "Linda Mbua",   
+    "age": 20, 
+    "gender": "Female", 
+    "email": "linda.m@example.com", 
+    "enrolled": "Yes",  
+    "courses": "Networking, Cyber Security", 
+    "scores": [88, 91, 84], 
+    "city":  "Douala",   
+    "guardian": "Peter. Mbua" 
+  },
+
+    { "id": 102, 
+    "firstName": "Linda", 
+    "fullName": "John Nfor",    
+    "age": 22, 
+    "gender": "male",   
+    "email": "linda.m@example.com", 
+    "enrolled": "No",   
+    "courses": "Graphic Design",             
+    "scores": [65,70],      
+    "city":  "Bamenda",  
+    "guardian": "None" 
+  },
+
+    { "id": 102, 
+    "firstName": "Linda", 
+    "fullName": "Sara Taku",    
+    "age": 19, 
+    "gender": "Female", 
+    "email": "linda.m@example.com", 
+    "enrolled": "Yes",  
+    "courses": "Mobile App Dev, UI/UX",       
+    "scores": [92, 89, 95], 
+    "city":  "Limbe",    
+    "guardian": "Grace Taku" 
+  },
+
+    { "id": 102, 
+    "firstName": "Linda", 
+    "fullName": "Micheal Fon",  
+    "age": 23, 
+    "gender": "male",   
+    "email": "linda.m@example.com", 
+    "enrolled": "Yes",  
+    "courses": "Data Analysis",              
+    "scores": [74, 80],     
+    "city":  "Bafoussam",
+    "guardian": "None" 
+  }
+  
   ]
 }
+
 
