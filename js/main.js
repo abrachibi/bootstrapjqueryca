@@ -571,64 +571,87 @@ $(document).ready(function() {
    OFFLINE DATABASE: FORCED INPUT RESET LOGIC
    ========================================================================== */
 
-// 1. ADMIN SEARCH (RIGHT SIDE)
-$('#btnAdminEnter').on('click', function() {
-    const adminField = document.getElementById('adminInputSearch');
-    const adminInput = adminField.value.trim().toLowerCase();
+$(document).ready(function() {
 
-    $.getJSON('json/admins.json', function(data) {
-        let foundAdmin = data.Admins.find(a => a.Name.toLowerCase() === adminInput);
+    // --- 1. ADMIN SEARCH & AUTO-CLEAR ---
+    $('#btnAdminEnter').on('click', function() {
+        const adminField = document.getElementById('adminInputSearch');
+        const query = adminField.value.trim().toLowerCase();
 
-        if (foundAdmin) {
-            // SUCCESS: Build and show Admin Row
-            $('#adminBody').html(`<tr><td>${foundAdmin.ID}</td><td class="fw-bold">${foundAdmin.Name}</td><td>${foundAdmin.Email}</td><td><span class="badge bg-dark">${foundAdmin.Admin}</span></td></tr>`);
-            $('#adminTableContainer').fadeIn(400);
-            $('#adminEmptyState').hide();
+        $.getJSON('json/admins.json', function(data) {
+            let foundAdmin = data.Admins.find(a => a.Name.toLowerCase() === query);
 
-            // --- THE HARD RESET: CLEARS THE BAR INSTANTLY ---
-            adminField.value = ""; // Vanilla JS bypasses jQuery locks
-            adminField.blur();     // Removes the cursor from the bar
+            if (foundAdmin) {
+                // Display Admin Info
+                $('#adminBody').html(`<tr><td>${foundAdmin.ID}</td><td class="fw-bold">${foundAdmin.Name}</td><td>${foundAdmin.Email}</td><td><span class="badge bg-dark">Admin</span></td></tr>`);
+                $('#adminTableContainer').fadeIn(400);
+                $('#adminEmptyState').hide();
 
-            // Load Student Database (Admin Privilege)
-            $.getJSON('json/students.json', function(studentData) {
-                let allRows = "";
-                studentData.students.forEach(s => {
-                    allRows += `<tr><td>${s.id}</td><td>${s.fullName}</td><td>${s.age}</td><td>${s.gender}</td><td>${s.email}</td><td>${s.enrolled}</td><td>${s.courses}</td><td>${s.scores.join(', ')}</td><td>${s.city}</td><td>${s.guardian}</td></tr>`;
+                // OPTION 2: CLEAR ADMIN INPUT IMMEDIATELY
+                adminField.value = ""; 
+                $(adminField).blur();
+
+                // Fetch Students
+                $.getJSON('json/students.json', function(sData) {
+                    let rows = "";
+                    sData.students.forEach(s => {
+                        rows += `<tr><td>${s.id}</td><td>${s.fullName}</td><td>${s.age}</td><td>${s.gender}</td><td>${s.email}</td><td>${s.enrolled}</td><td>${s.courses}</td><td>${s.scores.join(', ')}</td><td>${s.city}</td><td>${s.guardian}</td></tr>`;
+                    });
+                    $('#studentEmptyState').fadeOut(300, () => {
+                        $('#studentBody').html(rows);
+                        $('#studentTableContainer').fadeIn(800);
+                        $('#accessIndicator').text('Admin Verified').removeClass('bg-danger').addClass('bg-success');
+                    });
                 });
-                $('#studentEmptyState').fadeOut(300, () => {
-                    $('#studentBody').html(allRows);
-                    $('#studentTableContainer').fadeIn(800);
-                });
-            });
-        } else {
-            alert("Admin not recognized.");
-        }
+            } else { alert("Admin not found."); }
+        });
     });
-});
 
-// 2. STUDENT SEARCH (LEFT SIDE)
-$('#btnStudentEnter').on('click', function() {
-    const studentField = document.getElementById('studentInputSearch');
-    const studentInput = studentField.value.trim().toLowerCase();
+    // --- 2. ADMIN RESET BUTTON LOGIC ---
+    $('#btnAdminReset').on('click', function() {
+        $('#adminInputSearch').val(""); // Clear Input
+        $('#adminBody').empty();        // Clear Admin Table
+        $('#adminTableContainer').hide();
+        $('#adminEmptyState').fadeIn();
+        
+        // Relock Student Database for security
+        $('#studentBody').empty();
+        $('#studentTableContainer').hide();
+        $('#studentEmptyState').fadeIn();
+        $('#accessIndicator').text('Locked').removeClass('bg-success').addClass('bg-danger');
+    });
 
-    $.getJSON('json/students.json', function(data) {
-        let foundS = data.students.find(s => s.firstName.toLowerCase() === studentInput);
+    // --- 3. STUDENT SEARCH & AUTO-CLEAR ---
+    $('#btnStudentEnter').on('click', function() {
+        const studentField = document.getElementById('studentInputSearch');
+        const query = studentField.value.trim().toLowerCase();
 
-        if (foundS) {
-            // SUCCESS: Build and show Student Row
-            let row = `<tr><td>${foundS.id}</td><td>${foundS.fullName}</td><td>${foundS.age}</td><td>${foundS.gender}</td><td>${foundS.email}</td><td>${foundS.enrolled}</td><td>${foundS.courses}</td><td>${foundS.scores.join(', ')}</td><td>${foundS.city}</td><td>${foundS.guardian}</td></tr>`;
-            
-            // --- THE HARD RESET: CLEARS THE BAR INSTANTLY ---
-            studentField.value = ""; // Vanilla JS bypasses jQuery locks
-            studentField.blur();     // Removes the cursor from the bar
+        $.getJSON('json/students.json', function(data) {
+            let foundS = data.students.find(s => s.firstName.toLowerCase() === query);
 
-            $('#studentEmptyState').fadeOut(300, () => {
-                $('#studentBody').html(row);
-                $('#studentTableContainer').fadeIn(800);
-            });
-        } else {
-            alert("Student not found.");
-        }
+            if (foundS) {
+                let row = `<tr><td>${foundS.id}</td><td>${foundS.fullName}</td><td>${foundS.age}</td><td>${foundS.gender}</td><td>${foundS.email}</td><td>${foundS.enrolled}</td><td>${foundS.courses}</td><td>${foundS.scores.join(', ')}</td><td>${foundS.city}</td><td>${foundS.guardian}</td></tr>`;
+                
+                // AUTO-CLEAR STUDENT INPUT
+                studentField.value = ""; 
+                $(studentField).blur();
+
+                $('#studentEmptyState').fadeOut(300, () => {
+                    $('#studentBody').html(row);
+                    $('#studentTableContainer').fadeIn(800);
+                    $('#accessIndicator').text('Record Found').removeClass('bg-danger').addClass('bg-warning text-dark');
+                });
+            } else { alert("Student not found."); }
+        });
+    });
+
+    // --- 4. STUDENT RESET BUTTON LOGIC ---
+    $('#btnStudentReset').on('click', function() {
+        $('#studentInputSearch').val("");
+        $('#studentBody').empty();
+        $('#studentTableContainer').hide();
+        $('#studentEmptyState').fadeIn();
+        $('#accessIndicator').text('Locked').removeClass('bg-warning text-dark').addClass('bg-danger');
     });
 });
 
