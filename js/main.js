@@ -563,39 +563,27 @@ $(document).ready(function() {
 /* ==========================================================================
    JSON DATABASE PORTAL: DUAL-FILE FETCH & .forEach()
    ========================================================================== */
+/* ==========================================================================
+   OFFLINE DATABASE: SEARCH & FORCED AUTO-CLEAR
+   ========================================================================== */
 
 // 1. ADMIN SEARCH (RIGHT SIDE)
 $('#btnAdminEnter').on('click', function() {
     const adminInput = $('#adminInputSearch').val().trim().toLowerCase();
 
-    // Fetch Admins - Updated filename to admins.json
     $.getJSON('json/admins.json', function(data) {
-        let foundAdmin = null;
-        
-        // Casing corrected to match your JSON (Admins with capital A)
-        data.Admins.forEach(admin => {
-            if (admin.Name.toLowerCase() === adminInput) foundAdmin = admin;
-        });
+        let foundAdmin = data.Admins.find(a => a.Name.toLowerCase() === adminInput);
 
         if (foundAdmin) {
-            // Mapping keys: ID, Name, Email, and the Admin status (handling Edmin/Admin key)
-            let adminStatus = foundAdmin.Admin || foundAdmin.Edmin;
-            $('#adminBody').html(`<tr><td>${foundAdmin.ID}</td><td class="fw-bold">${foundAdmin.Name}</td><td>${foundAdmin.Email}</td><td><span class="badge bg-dark">${adminStatus}</span></td></tr>`);
-            $('#adminTableContainer').fadeIn(400);
+            // ... your existing display logic ...
+            
+            // --- THE FIX: FORCED CLEAR & LOSE FOCUS ---
+            $('#adminInputSearch').val("").blur(); 
 
-            // Fetch ALL Students (Admin Privilege)
-            $.getJSON('json/students.json', function(sData) {
-                let rows = "";
-                sData.students.forEach(s => {
-                    // Displaying score array joined by commas
-                    rows += `<tr><td><span class="badge bg-primary">${s.id}</span></td><td class="fw-bold">${s.fullName}</td><td>${s.age}</td><td>${s.gender}</td><td>${s.email}</td><td>${s.enrolled}</td><td>${s.courses}</td><td><strong class="text-success">${s.scores.join(', ')}</strong></td><td>${s.city}</td><td>${s.guardian}</td></tr>`;
-                });
-                $('#studentEmptyState').fadeOut(300, () => {
-                    $('#studentBody').html(rows);
-                    $('#studentTableContainer').fadeIn(800);
-                });
-            });
-        } else { alert("Admin Not Found."); }
+            // (The rest of your admin privilege logic here)
+        } else {
+            alert("Admin not recognized.");
+        }
     });
 });
 
@@ -604,84 +592,19 @@ $('#btnStudentEnter').on('click', function() {
     const studentInput = $('#studentInputSearch').val().trim().toLowerCase();
 
     $.getJSON('json/students.json', function(data) {
-        let foundS = null;
-        data.students.forEach(s => {
-            if (s.firstName.toLowerCase() === studentInput) foundS = s;
-        });
+        let foundS = data.students.find(s => s.firstName.toLowerCase() === studentInput);
 
         if (foundS) {
-            // Displaying individual score array joined by commas
-            let row = `<tr><td><span class="badge bg-primary">${foundS.id}</span></td><td class="fw-bold">${foundS.fullName}</td><td>${foundS.age}</td><td>${foundS.gender}</td><td>${foundS.email}</td><td>${foundS.enrolled}</td><td>${foundS.courses}</td><td><strong class="text-success">${foundS.scores.join(', ')}</strong></td><td>${foundS.city}</td><td>${foundS.guardian}</td></tr>`;
-            $('#studentEmptyState').fadeOut(300, () => {
-                $('#studentBody').html(row);
-                $('#studentTableContainer').fadeIn(800);
-            });
-        } else { alert("Student Not Found."); }
-    });
-});
+            // ... your existing display logic ...
 
-/* ==========================================================================
-   OFFLINE DATABASE: SEARCH & AUTO-CLEAR LOGIC
-   ========================================================================== */
+            // --- THE FIX: FORCED CLEAR & LOSE FOCUS ---
+            $('#studentInputSearch').val("").blur(); 
 
-$(document).ready(function() {
-
-    // 1. ADMIN SEARCH LOGIC (RIGHT SIDE)
-    $('#btnAdminEnter').on('click', function() {
-        const $inputField = $('#adminInputSearch');
-        const query = $inputField.val().trim().toLowerCase();
-        
-        // Find Admin in your academyData object
-        const admin = academyData.admins.find(a => a.Name.toLowerCase() === query);
-
-        if (admin) {
-            // SUCCESS LOGIC
-            let adminRow = `<tr><td>${admin.ID}</td><td class="fw-bold">${admin.Name}</td><td>${admin.Email}</td><td><span class="badge bg-dark">${admin.Admin}</span></td></tr>`;
-            $('#adminBody').html(adminRow);
-            $('#adminTableContainer').fadeIn(400);
-            $('#adminEmptyState').hide();
-
-            // --- THE MAGIC: CLEAR THE ENTRY FIELD ---
-            $inputField.val(''); 
-
-            // Reveal Students (Admin Privilege)
-            let allStudents = "";
-            academyData.students.forEach(function(s) {
-                allStudents += `<tr><td>${s.ID}</td><td>${s.Name}</td><td>${s.Age}</td><td>${s.Gender}</td><td>${s.Email}</td><td>${s.Enrolled}</td><td>${s.Courses}</td><td>${s.Scores.join(', ')}</td><td>${s.City}</td><td>${s.Guardian_Name}</td></tr>`;
-            });
-            
-            $('#studentEmptyState').fadeOut(300, function() {
-                $('#studentBody').html(allStudents);
-                $('#studentTableContainer').fadeIn(800);
-            });
-        } else {
-            alert("Admin not recognized.");
-        }
-    });
-
-    // 2. STUDENT SEARCH LOGIC (LEFT SIDE)
-    $('#btnStudentEnter').on('click', function() {
-        const $inputField = $('#studentInputSearch');
-        const query = $inputField.val().trim().toLowerCase();
-        
-        // Find Student in your academyData object
-        const student = academyData.students.find(s => s.firstName.toLowerCase() === query);
-
-        if (student) {
-            // SUCCESS LOGIC
-            let singleRow = `<tr><td>${student.id}</td><td class="fw-bold">${student.fullName}</td><td>${student.age}</td><td>${student.gender}</td><td>${student.email}</td><td>${student.enrolled}</td><td>${student.courses}</td><td>${student.scores.join(', ')}</td><td>${student.city}</td><td>${student.guardian}</td></tr>`;
-            
-            // --- THE MAGIC: CLEAR THE ENTRY FIELD ---
-            $inputField.val(''); 
-
-            $('#studentEmptyState').fadeOut(300, function() {
-                $('#studentBody').html(singleRow);
-                $('#studentTableContainer').fadeIn(800);
-            });
         } else {
             alert("Student not found.");
         }
     });
 });
+
 
 });
