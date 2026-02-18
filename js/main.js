@@ -630,21 +630,3 @@ $(document).ready(function() {
 
 
 
-// 3. Disable Text Selection (BUT ALLOW INPUTS)
-$('body').css({
-    '-webkit-user-select': 'none',
-    '-moz-user-select': 'none',
-    '-ms-user-select': 'none',
-    'user-select': 'none'
-});
-
-// Re-enable selection for the search box specifically
-$('#globalSearchInput').css({
-    '-webkit-user-select': 'text',
-    '-moz-user-select': 'text',
-    '-ms-user-select': 'text',
-    'user-select': 'text'
-});
-
-});
-
