@@ -656,4 +656,29 @@ $(document).ready(function() {
 });
 
 
-});
+
+ /* ==========================================================================
+       KEYBOARD SUPPORT: ADD THIS HERE
+       ========================================================================== */
+    
+    // 1. Student Search: Press 'Enter' to search
+    $('#studentInputSearch').on('keypress', function(e) {
+        if (e.which == 13) { 
+            e.preventDefault(); 
+            $('#btnStudentEnter').click(); 
+        }
+    });
+
+    // 2. Admin Search: Press 'Enter' to search
+    $('#adminInputSearch').on('keypress', function(e) {
+        if (e.which == 13) { 
+            e.preventDefault(); 
+            $('#btnAdminEnter').click(); 
+        }
+    });
+
+
+    
+/* ========================================================================== */
+
+}); // <--- THIS IS THE FINAL BRACKET. ALWAYS KEEP IT AT THE VERY BOTTOM.
