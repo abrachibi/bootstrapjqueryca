@@ -20,30 +20,8 @@
     </div>
 </nav>
 
-<!DOCTYPE html>
-<html lang="en-CM">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academy Records Portal | AB TECH</title>
-    <!-- Frameworks -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="my_assets/fonts/fontawesome-free-7.1.0-web/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="bg-light">
-
-<!-- NAVIGATION -->
-<nav class="navbar navbar-expand-md bg-dark navbar-dark text-uppercase fw-semibold p-3 shadow">
-    <div class="container-fluid px-4">
-        <a class="navbar-brand fs-4 fw-bold" href="index.html" style="color: #ffc107 !important;">AB TECH</a>
-        <a href="index.html" class="btn btn-outline-light btn-sm"><i class="fas fa-arrow-left me-2"></i>Back to Home</a>
-    </div>
-</nav>
-
 <!-- DATABASE VIEW SECTION -->
-<section id="database" class="py-4">
+<section id="database" class="py-5">
     <div class="container-fluid px-lg-5">
         <div class="row m-0 justify-content-center">
             
@@ -58,11 +36,14 @@
                 </div>             
             </div>
 
-            <!-- STUDENT TABLE (Left - 10 Columns) -->
-            <div class="col-lg-8 mb-4">
-                <!-- ALIGNMENT SPACER: Matches the height of the Admin Title -->
+            <!-- STUDENT TABLE (Left - col-lg-8) -->
+            <!-- Added 'mb-5 mb-lg-4' to create gap on mobile -->
+            <div class="col-lg-8 mb-5 mb-lg-4">
+                
+                <!-- STUDENT TITLE: Visible on Mobile, Spacer on Desktop -->
                 <div class="mb-3 ps-1">
-                    <h4 class="fw-bold" style="color: transparent; user-select: none;">Spacer</h4>
+                    <h4 class="fw-bold text-primary mb-0 d-block d-lg-none">Student Database</h4>
+                    <h4 class="fw-bold d-none d-lg-block" style="color: transparent; user-select: none;">Spacer</h4>
                 </div>
 
                 <div class="card shadow border-0 h-100">
@@ -73,11 +54,11 @@
                         
                         <!-- CENTERED STUDENT SEARCH BAR -->
                         <div class="row m-0 justify-content-center">
-                            <div class="col-md-8 p-0"> 
+                            <div class="col-11 col-md-8 p-0"> 
                                 <div class="input-group input-group-sm shadow-sm">
                                     <span class="input-group-text bg-white border-0"><i class="fas fa-search text-primary"></i></span>
-                                    <input type="text" id="studentInputSearch" class="form-control border-0 shadow-none text-center" placeholder="Enter Student First Name...">
-                                    <button class="btn btn-success fw-bold" id="btnStudentEnter">ENTER</button>
+                                    <input type="text" id="studentInputSearch" class="form-control border-0 shadow-none text-center" placeholder="Enter First Name...">
+                                    <button class="btn btn-success fw-bold px-3" id="btnStudentEnter">ENTER</button>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +85,7 @@
                 </div>
             </div>
             
-            <!-- ADMIN TABLE (Right - 4 Columns) -->
+            <!-- ADMIN TABLE (Right - col-lg-4) -->
             <div class="col-lg-4 mb-4">
                 <!-- ADMIN TITLE -->
                 <div class="mb-3 ps-1">
@@ -118,13 +99,13 @@
                             <a href="search.html" class="btn btn-info btn-sm fw-bold"><i class="fas fa-search"></i></a>
                         </div>
 
-                        <!-- CENTERED ADMIN SEARCH BAR - RESTORED STYLE -->
+                        <!-- CENTERED ADMIN SEARCH BAR -->
                         <div class="row m-0 justify-content-center">
-                            <div class="col-md-11 p-0"> 
+                            <div class="col-11 col-md-11 p-0"> 
                                 <div class="input-group input-group-sm shadow-sm">
                                     <span class="input-group-text bg-white border-0"><i class="fas fa-search text-dark"></i></span>
-                                    <input type="text" id="adminInputSearch" class="form-control border-0 shadow-none text-center" placeholder="Enter Admin Name...">
-                                    <button class="btn btn-primary fw-bold" id="btnAdminEnter">ENTER</button>
+                                    <input type="text" id="adminInputSearch" class="form-control border-0 shadow-none text-center" placeholder="Admin Name...">
+                                    <button class="btn btn-primary fw-bold px-3" id="btnAdminEnter">ENTER</button>
                                 </div>
                             </div>
                         </div>
@@ -145,23 +126,10 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
-
-
-<!-- FOOTER -->
-<footer class="bg-dark py-4 text-center border-top border-secondary mt-5">
-    <p class="mb-0 text-white-50">© 2026 Age Academy by <strong class="text-primary">AB TECH</strong>. JSON Database</p>
-</footer>
-
-<!-- SCRIPTS -->
-<script src="js/jquery-jquery-f79d5f1/dist/jquery.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/main.js"></script>
-
-</body>
-</html>
 
 
 
