@@ -583,7 +583,7 @@ $(document).ready(function() {
 
             if (foundAdmin) {
                 // Display Admin Info
-                $('#adminBody').html(`<tr><td>${foundAdmin.ID}</td><td class="fw-bold">${foundAdmin.Name}</td><td>${foundAdmin.Email}</td><td><span class="badge bg-dark">Admin</span></td></tr>`);
+                $('#adminBody').html(`<tr><td>${foundAdmin.ID}</td><td class="fw-bold">${foundAdmin.Name}</td><td>${foundAdmin.Email}</td><td><span class="badge bg-dark">Yes</span></td></tr>`);
                 $('#adminTableContainer').fadeIn(400);
                 $('#adminEmptyState').hide();
 
@@ -682,3 +682,4 @@ $(document).ready(function() {
 /* ========================================================================== */
 
 }); // <--- THIS IS THE FINAL BRACKET. ALWAYS KEEP IT AT THE VERY BOTTOM.
+
